@@ -2,6 +2,10 @@
 
 Build resources & api controllers in fast, easy and fully customizable way.
 
+# Installation
+
+composer require bashirsh/laravel_easy_controller
+
 # Contents
 ### [Easy Controllers](#easy-controllers) 
 - [Multi Page Crud](#multi-page-crud)
