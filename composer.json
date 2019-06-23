@@ -1,0 +1,14 @@
+{
+    "name": "bashirsh/laravel_easy_controller",
+    "description": "build api resources controllers in fast, easy and fully customizable way.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bashir Shallah",
+            "email": "bashir.shallah@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
