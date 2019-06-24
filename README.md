@@ -2,15 +2,17 @@
 
 Build resources & api controllers in fast, easy and fully customizable way.
 
+# Contents
+- [Installation](#installation)
+- [API Controller](#api-controller)
+- [Multi Page Crud](#multi-page-crud)
+- [Hooks](#hooks)
+
 # Installation
 
 composer require bashirsh/laravel_easy_controller
 
-# Contents
-### [Easy Controllers](#easy-controllers) 
-- [Multi Page Crud](#multi-page-crud)
-- [API Controller](#api-controller)
-- [Hooks](#hooks)
+## ApiController
 
 to create new API Controller we need to extend the class `ApiController`, 
 
@@ -30,8 +32,9 @@ This class will create a full resource controller with the methods:
 * update
 * delete
 
-then we need to add the resource to the routes, and create view files.
+then we need to add the resource to the routes.
 
+## CrudController
 
 to create new controller we need to extend the class `CrudController`, 
 
@@ -57,5 +60,5 @@ This class will create a full resource controller with the methods:
 
 then we need to add the resource to the routes, and create view files.
 
-#Hooks
+## Hooks
 The package contain a lot of hooks which help you to customize any thing in the controllers, you can see them here: [Hooks](src/Hooks).
