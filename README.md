@@ -36,10 +36,12 @@ composer require bashirsh/laravel_easy_controller
 
 to create new API Controller we need to extend the class `ApiController`, 
 
+app/Http/Controllers/Api/UsersController.php
+
 ```
 use bashirsh\laravel_easy_controller\ApiController;
 
-class Users extends ApiController {
+class UsersController extends ApiController {
     protected $model = '\App\Models\User';
 }
 ```
@@ -57,7 +59,7 @@ then we need to add the resource to the routes.
 routes/api.php
 ```
 ...
-Route::apiResource('products', 'ProductController');
+Route::apiResource('users', 'UsersController');
 ...
 ```
 
@@ -66,12 +68,12 @@ Route::apiResource('products', 'ProductController');
 to create new controller we need to extend the class `CrudController`, 
 
 
-app/Http/Controllers/UserController.php
+app/Http/Controllers/UsersController.php
 
 ```
 use bashirsh\laravel_easy_controller\CrudController;
 
-class UserController extends CrudController {
+class UsersController extends CrudController {
     protected $viewPath = 'admin.users';
     protected $model = '\App\Models\User';
     protected $resource = 'admin.users';
@@ -81,8 +83,8 @@ class UserController extends CrudController {
 routes/web.php
 ```
 ...
-Route::resource('users', 'UserController');
-Route::get('users/excel', 'UserController@excel');
+Route::resource('users', 'UsersController');
+Route::get('users/excel', 'UsersController@excel');
 ...
 ```
 
@@ -109,7 +111,7 @@ The package will handle pagination limit and filter out of the box, and we can c
 ```
 use bashirsh\laravel_easy_controller\ApiController;
 
-class Users extends ApiController {
+class UsersController extends ApiController {
     protected $model = '\App\Models\User';
     
     function indexQueryHook($query){
@@ -125,7 +127,7 @@ we define our allowed filters by defining.
 ```
 use bashirsh\laravel_easy_controller\ApiController;
 
-class Users extends ApiController {
+class UsersController extends ApiController {
     protected $model = '\App\Models\User';
     
     public function filter_fields(){
@@ -149,7 +151,7 @@ class Users extends ApiController {
 ```
 use bashirsh\laravel_easy_controller\ApiController;
 
-class Users extends ApiController {
+class UsersController extends ApiController {
     protected $model = '\App\Models\User';
 
     public function index_transformer($item){
@@ -168,7 +170,7 @@ class Users extends ApiController {
 ```
 use bashirsh\laravel_easy_controller\ApiController;
 
-class Users extends ApiController {
+class UsersController extends ApiController {
     protected $model = '\App\Models\User';
     
     public function add_rules(){
@@ -195,7 +197,7 @@ class Users extends ApiController {
 ```
 use bashirsh\laravel_easy_controller\ApiController;
 
-class Users extends ApiController {
+class UsersController extends ApiController {
     protected $model = '\App\Models\User';
     
     protected function prepare_data_to_add($data)
@@ -223,7 +225,7 @@ and you can customize using these methods
 ```
 use bashirsh\laravel_easy_controller\ApiController;
 
-class Users extends ApiController {
+class UsersController extends ApiController {
     protected $model = '\App\Models\User';
     
     /**
@@ -256,7 +258,7 @@ class Users extends ApiController {
 ```
 use bashirsh\laravel_easy_controller\ApiController;
 
-class Users extends ApiController {
+class UsersController extends ApiController {
     protected $model = '\App\Models\User';
     
     // used for both save and update
