@@ -1,4 +1,4 @@
-# Laravel Easy Controller 1.0
+# Laravel Easy Controller 1.0.2
 
 Build resources & api controllers in fast, easy and fully customizable way.
 
