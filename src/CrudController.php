@@ -44,19 +44,19 @@ class CrudController extends RepositoryController
 
     public function output_update($item)
     {
-        flash('Updated successfully!');
+        Helpers::flash('Updated successfully!');
         return redirect($this->edit_redirect_url($item));
     }
 
     public function output_store($item)
     {
-        flash('Added successfully!');
+        Helpers::flash('Added successfully!');
         return redirect($this->add_redirect_url($item));
     }
 
     public function output_destroy($item)
     {
-        flash('Deleted successfully!');
+        Helpers::flash('Deleted successfully!');
         return redirect($this->destroy_redirect_url($item));
     }
 }
