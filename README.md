@@ -64,9 +64,9 @@ Route::apiResource('users', 'UsersController');
 ```
 
 ## CrudController
+to create new controller we need to extend the class `CrudController` 
 
-to create new controller we need to extend the class `CrudController`, 
-
+#### Controller
 
 app/Http/Controllers/UsersController.php
 
@@ -78,14 +78,6 @@ class UsersController extends CrudController {
     protected $model = '\App\Models\User';
     protected $resource = 'admin.users';
 }
-```
-
-routes/web.php
-```
-...
-Route::resource('users', 'UsersController');
-Route::get('users/excel', 'UsersController@excel');
-...
 ```
 
 This class will create a full resource controller with the methods:
@@ -100,6 +92,37 @@ This class will create a full resource controller with the methods:
 * export to excel
 
 then we need to add the resource to the routes, and create view files.
+#### Route
+routes/web.php
+```
+...
+Route::resource('users', 'UsersController');
+Route::get('users_excel', 'UsersController@excel');
+...
+```
+
+#### Views
+create 4 files in views  
+resources/views/admin/users/index.blade.php  
+the controller will pass the variable `$data` which contain the result of Model::paginate()
+
+resources/views/admin/users/show.blade.php  
+the controller will pass the variable `$item`, which contain the result of Model::find($id)  
+  
+resources/views/admin/users/create.blade.php
+we can print validation errors
+```  
+@if ($errors->any())
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
+```
+
+resources/views/admin/users/edit.blade.php  
+the controller will pass the variable `$item`, which contain the result of Model::find($id)  
 
 ## Hooks
 The package contain a lot of hooks which help you to customize any thing in the controllers, you can see them here: [Hooks](src/Hooks).
