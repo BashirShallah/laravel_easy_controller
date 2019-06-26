@@ -9,7 +9,8 @@ use bashirsh\laravel_easy_controller\Hooks\{AfterSaveTrait,
     OptionsTrait,
     OutputTrait,
     SaveDataTrait,
-    ValidationTrait};
+    ValidationTrait,
+    ExcelTrait};
 use Illuminate\Http\Request;
 
 abstract class RepositoryController extends Controller
@@ -21,7 +22,8 @@ abstract class RepositoryController extends Controller
         OptionsTrait,
         OutputTrait,
         SaveDataTrait,
-        ValidationTrait;
+        ValidationTrait,
+        ExcelTrait;
 
     protected $model;
 
