@@ -33,6 +33,9 @@ abstract class RepositoryController extends Controller
         $model = $this->model;
         $query = $this->createQuery($model);
         $limit = request('limit', 15);
+        $orderBy = request('order_by', 'id');
+        $order = request('order', 'asc');
+        $query->orderBy($orderBy, $order);
         $data = $this->formatIndexData($query->paginate($limit));
         $output = compact('data');
         return $this->output_index($output);

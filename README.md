@@ -1,4 +1,4 @@
-# Laravel Easy Controller 1.0.2
+# Laravel Easy Controller 1.0.4
 
 Build resources & api controllers in fast, easy and fully customizable way.
 
@@ -15,6 +15,7 @@ Build resources & api controllers in fast, easy and fully customizable way.
 - Query Hook
 - pagination
 - limit
+- order & order by
 - transform row
 - export to excel (current page or all results).
 
@@ -32,7 +33,7 @@ Build resources & api controllers in fast, easy and fully customizable way.
 
 composer require bashirsh/laravel_easy_controller
 
-## ApiController
+## Api Controller
 
 to create new API Controller we need to extend the class `ApiController`, 
 
