@@ -24,27 +24,39 @@ class Helpers {
             $filter['cond'] = strtolower($filter['cond']);
 
             if ($value) {
-                if ($filter['cond'] == 'like')
-                    $value = "%$value%";
-                elseif ($filter['cond'] == 'liker')
-                    $value = "$value%";
-                elseif ($filter['cond'] == 'likel')
-                    $value = "%$value";
-
-                if (in_array($filter['cond'], ['liker', 'likel']))
-                    $filter['cond'] = 'like';
-
                 if (isset($filter['relation'])) {
                     $query->whereHas($filter['relation']['name'], function ($q) use ($filter, $value) {
-                        $q->where($filter['field'], $filter['cond'], $value);
+                        self::where($q, $filter['field'], $filter['cond'], $value);
                     });
                 } else {
-                    $query->where($filter['field'], $filter['cond'], $value);
+                    self::where($query, $filter['field'], $filter['cond'], $value);
                 }
 
             }
         }
 
         return $query;
+    }
+
+    public static function where($query, $field, $cond, $value){
+        if($cond === 'in') {
+            if(! is_array($value)){
+                $value = [$value];
+            }
+
+            $query->whereIn($field, $value);
+        } else {
+            if ($cond == 'like')
+                $value = "%$value%";
+            elseif ($cond == 'liker')
+                $value = "$value%";
+            elseif ($cond == 'likel')
+                $value = "%$value";
+
+            if (in_array($cond, ['liker', 'likel']))
+                $cond = 'like';
+
+            $query->where($field, $cond, $value);
+        }
     }
 }
